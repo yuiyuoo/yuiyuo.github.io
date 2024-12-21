@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(0deg, #af0ebe, #db5555, #6800ff);
+    padding: 10px;
+}
+
+.todo-app {
+    width: 100%;
+    max-width: 800px;
+    background: #ffffff;
+    margin: 50px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+
+.todo-app h1 {
+    color: #db5555;
+    text-align: center;
+    display: flex;
+    margin-bottom: 30px;
+    size: 20px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: hsl(285, 11%, 85%);
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 10px;
+
+}
+
+button {
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #db559f;
+    color: #fafafa;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+ul li {
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+
+
+ul li::before {
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    /* background-image: url(https://icons.veryicon.com/png/o/miscellaneous/basic-icon-5/unchecked-41.png);
+    background-size: cover;
+    background-position: center; */
+    top: 7px;
+    left: 20px;
+}
+
+/* ul li.checked {
+    color: #745a5a;
+    text-decoration: lavender;
+}
+  */
+
+ul li span {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #a49ebe;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 20%;
+}
+
+ul li span:hover {
+    background-color: #632929;
+}
+
+/* 
+ul li checkbox {
+    position: absolute;
+    left: 15px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+ul li checkbox::before {
+    cursor: pointer;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+ul li checkmark {
+    position: absolute;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+ul li checkmark::before {
+    cursor: pointer;
+    content: '';
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+
+ul li.checked checkmark {
+    cursor: pointer;
+    left: 7px;
+    width: 0.35em;
+    height: 1em;
+    border: solid rgb(179, 0, 0);
+    border-width: 0 0.15em 0.15em 0;
+    transform: rotate(45deg);
+} */
+
+
+/* Hide the default checkbox */
+.checkboxContainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    border-radius: 5px;
+}
+
+/* .checkboxContainer {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+    user-select: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 0px rgb(183, 183, 183);
+} */
+
+.checkboxContainer {
+    display: flex; /* Flexbox for horizontal alignment */
+    align-items: center; /* Center items vertically */
+    gap: 10px; /* Space between checkbox and text */
+    position: relative;
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 0px rgb(183, 183, 183);
+    background-color: #f9f9f9;
+    transition: background-color 0.2s ease;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 1.3em;
+    width: 1.3em;
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkboxContainer input:checked~.checkmark {
+    box-shadow: 3px 3px 0px rgb(183, 183, 183);
+    transition: all 0.2s;
+    opacity: 1;
+    background-image: linear-gradient(45deg, rgb(100, 61, 219) 0%, rgb(217, 21, 239) 100%);
+}
+
+.checkboxContainer input~.checkmark {
+    transition: all 0.2s;
+    opacity: 1;
+    box-shadow: 1px 1px 0px rgb(183, 183, 183);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+/* Show the checkmark when checked */
+.checkboxContainer input:checked~.checkmark:after {
+    opacity: 1;
+    transition: all 0.2s;
+}
+
+/* Style the checkmark/indicator */
+.checkboxContainer .checkmark:after {
+    left: 0.45em;
+    top: 0.25em;
+    width: 0.25em;
+    height: 0.5em;
+    border: solid white;
+    border-width: 0 0.15em 0.15em 0;
+    transform: rotate(45deg);
+}

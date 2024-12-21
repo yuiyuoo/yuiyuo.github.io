@@ -1,1 +1,33 @@
-ToDoList
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <title>To-Do-List</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>          
+        <div class ="container">
+            
+            <div class ="todo-app">
+                <h1>To-Dos</h1>
+                <ul class="myclass">
+                </ul>
+                
+                <div class="row">
+                    <input type="text" id="input-box" placeholder="Add your todo there">
+                    <button onclick="addTask()">Add</button>
+                </div>
+                <button id="clear-btn">Clear</button>
+                
+                <ul id="list-container">
+                   
+                </ul>
+               
+            </div>
+          
+            
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
